@@ -1,0 +1,32 @@
+.newPlanModal-component {
+  .modal-content {
+    border: none;
+    .modal-header {
+      background-color: #f4f6f8;
+      height: 50px;
+      padding: 0 20px;
+
+      h5.modal-title {
+        line-height: 50px;
+        color: #00c1de;
+      }
+      button.close {
+        margin: -5px -25px -10px -10px;
+      }
+    }
+    .modal-body {
+    }
+    .modal-footer {
+      button.btn.btn-secondary {
+        background-color: #ffffff;
+        border: 2px solid #00c1de;
+        color: #00c1de;
+      }
+      button.btn.btn-primary {
+        background-color: #00c1de;
+        border: 2px solid #00c1de;
+        color: #ffffff;
+      }
+    }
+  }
+}

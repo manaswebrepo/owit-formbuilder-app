@@ -1,0 +1,48 @@
+.canvasMenu-component {
+  .navbar.navbar-expand-lg {
+    font-size: 0.88rem;
+    padding: 0;
+    background-color: #ffffff;
+    color: #21333f;
+
+    .collapse.navbar-collapse {
+      ul.navbar-nav {
+        li.nav-item.dropdown,
+        li.nav-item {
+          a.nav-link {
+            padding: 8px 20px 6px0 20px;
+            color: #21333f;
+            display: flex;
+          }
+          &:hover {
+            color: #ffffff;
+            background-color: #00c1de;
+          }
+          div.dropdown-menu {
+            border: 1px solid #00c1de;
+            border-radius: 0em;
+            padding: 0;
+            margin: 0;
+            a.dropdown-item {
+              padding: 0 20px 0 20px;
+              font-size: 0.88rem;
+              line-height: 30px;
+              &:hover {
+                background-color: #00c1de;
+              }
+            }
+          }
+        }
+        li.nav-item.dropdown.show {
+          background-color: #00c1de;
+        }
+      }
+    }
+  }
+  form.form-inline {
+    .custom-control {
+      padding-right: 20px;
+      padding-left: 20px;
+    }
+  }
+}

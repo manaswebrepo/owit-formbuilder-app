@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>{{title}}</title>
+
+    <!-- toolkit styles -->
+    {{#if fabricator}}
+    <link
+      rel="stylesheet"
+      href="{{#if baseurl}}{{ baseurl }}/{{/if}}assets/fabricator/styles/fabricator.min.css"
+    />
+    {{else}} {{/if}}
+    <link
+      rel="stylesheet"
+      href="{{#if baseurl}}{{ baseurl }}/{{/if}}assets/toolkit/styles/main.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
+    <link
+      href="https://app.mapsindoors.com/mapsindoors/js/sdk/ui/FloorSelector.css"
+      type="text/css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- toolkit styles -->
+  </head>
+  <body>
+    {{#if fabricator}} {{> f-icons}} {{> f-menu}}
+    <div class="f-container">{{> f-control-bar}}</div>
+    {{/if}} {% body %}
+
+    <!-- toolkit scripts -->
+    {{#if fabricator}}
+    <script src="{{#if baseurl}}{{ baseurl }}/{{/if}}assets/fabricator/scripts/fabricator.min.js"></script>
+    {{/if}}
+    <script src="{{#if baseurl}}{{ baseurl }}/{{/if}}assets/toolkit/scripts/main.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!--
+      <script
+        src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"
+      ></script>
+    -->
+    <!--
+      <script
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm"
+        crossorigin="anonymous"
+      ></script>
+    -->
+    <script
+      type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?libraries=geometry&key=AIzaSyDtYny7wvQ-M1FdQ1DUS4iJbKCXOVK-99w"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://app.mapsindoors.com/mapsindoors/js/sdk/3.6.0/mapsindoors-3.6.0.js.gz?apikey=57e4e4992e74800ef8b69718"
+    ></script>
+
+    <!-- toolkit scripts -->
+  </body>
+</html>

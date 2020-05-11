@@ -1,0 +1,69 @@
+.sideNavigation-component {
+  // position: relative;
+  display: flex;
+  .toolbox {
+    height: calc(100vh - 52px);
+    // width: 4rem;
+    background-color: #d4dcde;
+    .tool-list {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      padding-top: 20px;
+      li {
+        padding: 10px;
+        margin: 0 0 10px 0;
+        text-align: center;
+        span {
+          font-size: 2rem;
+          cursor: pointer;
+          &.active {
+            color: #02c9ec;
+          }
+        }
+      }
+    }
+  }
+  .toolbox__toolPanel {
+    width: 0;
+    height: calc(100vh - 58px);
+    display: none;
+    border-right: 2px solid #d4dcde;
+    transition: 0.5s;
+    padding: 20px 0;
+    font-size: 0.92rem;
+    h4 {
+      font-size: inherit;
+    }
+    a.title-header {
+      font-size: inherit;
+      font-weight: 400;
+      color: #21333f;
+      display: block;
+      padding: 0 5px;
+      background-color: #f4f6f8;
+      border-bottom: 1px solid #ffffff;
+      span {
+        vertical-align: middle;
+      }
+      &:hover {
+        text-decoration: none;
+      }
+    }
+    ul.collapse {
+      height: 50vh;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      li {
+        padding: 8px 0;
+
+        a {
+          color: #21333f;
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}

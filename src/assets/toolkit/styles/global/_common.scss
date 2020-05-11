@@ -1,0 +1,17 @@
+.main-wrapper {
+  .canvas-title {
+    background-color: #000000;
+    height: 20px;
+    font-size: 11px;
+    line-height: 20px;
+    color: #fafafa;
+    text-align: center;
+  }
+  .content-section {
+    display: flex;
+    justify-content: space-between;
+    .canvas-wrapper {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,24 @@
+---
+title: 'Canvas Application'
+fabricator: false
+---
+
+<div class="main-wrapper">
+  {{> topMenu-component}}
+  <div class="content-section">
+    {{> sideNavigation-component}}
+    <div class="canvas-wrapper">
+      <div class="canvas-title">ButtonHyperLink - Version 1 (Draft)</div>
+      {{> canvasMenu-component}} {{> canvasContent-component}} {{>
+      canvasFooterMenu-component}}
+    </div>
+  </div>
+</div>
+
+<!-- ALL POP-UP MODAL -->
+
+<!-- New Plan Modal -->
+{{> newPlanModal-component}}
+
+<!-- Login Option Modal -->
+{{> loginSettingModal-component}}
