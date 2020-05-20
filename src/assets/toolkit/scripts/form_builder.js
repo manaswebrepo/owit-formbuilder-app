@@ -5,6 +5,7 @@ $(document).ready(function() {
     },
     connectToSortable: '.form_builder_area',
   });
+
   $('.form_bal_textarea').draggable({
     helper: function() {
       return getTextAreaFieldHTML();
@@ -70,14 +71,15 @@ $(document).ready(function() {
       getPreview();
     },
   });
+
   $('.form_builder_area').disableSelection();
 
   function getButtonFieldHTML() {
     var field = generateField();
     var html =
-      '<div class="all_div"><div class="row li_row"><div class="col-md-12"><button type="button" class="btn btn-primary btn-sm remove_bal_field pull-right" data-field="' +
+      '<div class="all_div"><div class="row li_row"><div class="col-md-12"><button type="button" class="btn btn-primary btn-sm remove_bal_field pull-right mr-2" data-field="' +
       field +
-      '"><i class="material-icons"> clear </i></button></div></div></div><hr/><div class="row li_row form_output" data-type="button" data-field="' +
+      '"><i class="material-icons"> delete_forever </i></button></div></div></div><hr/><div class="row li_row form_output" data-type="button" data-field="' +
       field +
       '"><div class="col-md-12"><div class="form-group"><input type="text" name="class_' +
       field +
@@ -99,7 +101,11 @@ $(document).ready(function() {
     var html =
       '<div class="all_div"><div class="row li_row"><div class="col-md-12"><button type="button" class="btn btn-primary btn-sm remove_bal_field pull-right" data-field="' +
       field +
-      '"><i class="material-icons"> clear </i></button></div></div></div><hr/><div class="row li_row form_output" data-type="text" data-field="' +
+      '"><i class="material-icons"> delete_forever </i></button> <button type="button" class="btn btn-primary btn-sm copy_bal_field pull-right mr-2" data-field="' +
+      field +
+      '"><i class="material-icons"> file_copy </i></button><button type="button" title="Clear the board" class="btn btn-danger btn-sm clearUp_bal_field pull-right mr-2" data-field="' +
+      field +
+      '"><i class="material-icons"> delete_sweep </i></button></div></div></div><hr/><div class="row li_row form_output" data-type="text" data-field="' +
       field +
       '"><div class="col-md-12"><div class="form-group"><input type="text" name="label_' +
       field +
@@ -118,12 +124,65 @@ $(document).ready(function() {
       .addClass('li_' + field + ' form_builder_field')
       .html(html);
   }
+
+  $(document).on('click', '.copy_bal_field', function(e) {
+    e.preventDefault();
+
+    var field = generateField();
+    var html =
+      '<div class="all_div"><div class="row li_row"><div class="col-md-12"><button type="button" class="btn btn-primary btn-sm remove_bal_field pull-right" data-field="' +
+      field +
+      '"><i class="material-icons"> delete_forever </i></button> <button type="button" class="btn btn-primary btn-sm copy_bal_field pull-right mr-2" data-field="' +
+      field +
+      '"><i class="material-icons"> file_copy </i></button><button type="button" title="Clear the board" class="btn btn-danger btn-sm clearUp_bal_field pull-right mr-2" data-field="' +
+      field +
+      '"><i class="material-icons"> delete_sweep </i></button></div></div></div><hr/><div class="row li_row form_output" data-type="text" data-field="' +
+      field +
+      '"><div class="col-md-12"><div class="form-group"><input type="text" name="label_' +
+      field +
+      '" class="form-control form_input_label" value="Label" data-field="' +
+      field +
+      '"/></div></div><div class="col-md-12"><div class="form-group"><input type="text" name="placeholder_' +
+      field +
+      '" data-field="' +
+      field +
+      '" class="form-control form_input_placeholder" placeholder="Placeholder"/></div></div><div class="col-md-12"><div class="form-group"><input type="text" name="text_' +
+      field +
+      '" class="form-control form_input_name" placeholder="Name"/></div></div><div class="col-md-12"><div class="form-check"><label class="form-check-label"><input data-field="' +
+      field +
+      '" type="checkbox" class="form-check-input form_input_req">Required</label></div></div></div>';
+
+    var copyHtml = $('<div>')
+      .addClass('li_' + field + ' form_builder_field')
+      .html(html);
+
+    $(this)
+      .closest('.ui-sortable')
+      .append(copyHtml);
+    getPreview();
+  });
+
+  $(document).on('click', '.clearUp_bal_field', function(e) {
+    e.preventDefault();
+
+    $('.form_builder_area.ui-sortable').hide('400', function() {
+      $(this)
+        .empty()
+        .css('display', 'block');
+    });
+    $('form.form-horizontal > .preview').hide('400', function() {
+      $(this)
+        .empty()
+        .css('display', 'block');
+    });
+  });
+
   function getNumberFieldHTML() {
     var field = generateField();
     var html =
       '<div class="all_div"><div class="row li_row"><div class="col-md-12"><button type="button" class="btn btn-primary btn-sm remove_bal_field pull-right" data-field="' +
       field +
-      '"><i class="material-icons"> clear </i></button></div></div></div><hr/><div class="row li_row form_output" data-type="number" data-field="' +
+      '"><i class="material-icons"> delete_forever </i></button></div></div></div><hr/><div class="row li_row form_output" data-type="number" data-field="' +
       field +
       '"><div class="col-md-12"><div class="form-group"><input type="text" name="label_' +
       field +
@@ -147,7 +206,7 @@ $(document).ready(function() {
     var html =
       '<div class="all_div"><div class="row li_row"><div class="col-md-12"><button type="button" class="btn btn-primary btn-sm remove_bal_field pull-right" data-field="' +
       field +
-      '"><i class="material-icons"> clear </i></button></div></div></div><hr/><div class="row li_row form_output" data-type="email" data-field="' +
+      '"><i class="material-icons"> delete_forever </i></button></div></div></div><hr/><div class="row li_row form_output" data-type="email" data-field="' +
       field +
       '"><div class="col-md-12"><div class="form-group"><input type="text" name="label_' +
       field +
@@ -171,7 +230,7 @@ $(document).ready(function() {
     var html =
       '<div class="all_div"><div class="row li_row"><div class="col-md-12"><button type="button" class="btn btn-primary btn-sm remove_bal_field pull-right" data-field="' +
       field +
-      '"><i class="material-icons"> clear </i></button></div></div></div><hr/><div class="row li_row form_output" data-type="password" data-field="' +
+      '"><i class="material-icons"> delete_forever </i></button></div></div></div><hr/><div class="row li_row form_output" data-type="password" data-field="' +
       field +
       '"><div class="col-md-12"><div class="form-group"><input type="text" name="label_' +
       field +
@@ -195,7 +254,7 @@ $(document).ready(function() {
     var html =
       '<div class="all_div"><div class="row li_row"><div class="col-md-12"><button type="button" class="btn btn-primary btn-sm remove_bal_field pull-right" data-field="' +
       field +
-      '"><i class="material-icons"> clear </i></button></div></div></div><hr/><div class="row li_row form_output" data-type="date" data-field="' +
+      '"><i class="material-icons"> delete_forever </i></button></div></div></div><hr/><div class="row li_row form_output" data-type="date" data-field="' +
       field +
       '"><div class="col-md-12"><div class="form-group"><input type="text" name="label_' +
       field +
@@ -215,7 +274,7 @@ $(document).ready(function() {
     var html =
       '<div class="all_div"><div class="row li_row"><div class="col-md-12"><button type="button" class="btn btn-primary btn-sm remove_bal_field pull-right" data-field="' +
       field +
-      '"><i class="material-icons"> clear </i></button></div></div></div><hr/><div class="row li_row form_output" data-type="textarea" data-field="' +
+      '"><i class="material-icons"> delete_forever </i></button></div></div></div><hr/><div class="row li_row form_output" data-type="textarea" data-field="' +
       field +
       '"><div class="col-md-12"><div class="form-group"><input type="text" name="label_' +
       field +
@@ -240,7 +299,7 @@ $(document).ready(function() {
     var html =
       '<div class="all_div"><div class="row li_row"><div class="col-md-12"><button type="button" class="btn btn-primary btn-sm remove_bal_field pull-right" data-field="' +
       field +
-      '"><i class="material-icons"> clear </i></button></div></div><hr/><div class="row li_row form_output" data-type="select" data-field="' +
+      '"><i class="material-icons"> delete_forever </i></button></div></div><hr/><div class="row li_row form_output" data-type="select" data-field="' +
       field +
       '"><div class="col-md-12"><div class="form-group"><input type="text" name="label_' +
       field +
@@ -273,7 +332,7 @@ $(document).ready(function() {
     var html =
       '<div class="all_div"><div class="row li_row"><div class="col-md-12"><button type="button" class="btn btn-primary btn-sm remove_bal_field pull-right" data-field="' +
       field +
-      '"><i class="material-icons"> clear </i></button></div></div><hr/><div class="row li_row form_output" data-type="radio" data-field="' +
+      '"><i class="material-icons"> delete_forever </i></button></div></div><hr/><div class="row li_row form_output" data-type="radio" data-field="' +
       field +
       '"><div class="col-md-12"><div class="form-group"><input type="text" name="label_' +
       field +
@@ -310,7 +369,7 @@ $(document).ready(function() {
     var html =
       '<div class="all_div"><div class="row li_row"><div class="col-md-12"><button type="button" class="btn btn-primary btn-sm remove_bal_field pull-right" data-field="' +
       field +
-      '"><i class="material-icons"> clear </i></button></div></div><hr/><div class="row li_row form_output" data-type="checkbox" data-field="' +
+      '"><i class="material-icons"> delete_forever </i></button></div></div><hr/><div class="row li_row form_output" data-type="checkbox" data-field="' +
       field +
       '"><div class="col-md-12"><div class="form-group"><input type="text" name="label_' +
       field +
@@ -560,6 +619,7 @@ $(document).ready(function() {
     );
     getPreview();
   });
+
   $(document).on('click', '.remove_bal_field', function(e) {
     e.preventDefault();
     var field = $(this).attr('data-field');
@@ -570,6 +630,7 @@ $(document).ready(function() {
         getPreview();
       });
   });
+
   $(document).on('click', '.remove_more_select', function() {
     var field = $(this).attr('data-field');
     $(this)
