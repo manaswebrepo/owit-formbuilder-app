@@ -80,7 +80,7 @@
     "plato": "^1.7.0",
     "prettier": "1.15.2",
     "requirejs": "^2.3.6",
-    "webpack": "^4.26.0"
+    "webpack": "^5.94.0"
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
